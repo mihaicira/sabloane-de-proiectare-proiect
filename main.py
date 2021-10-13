@@ -1,29 +1,33 @@
-class Book:
-    content = []
-    def __init__(self,titlu):
-        self.titlu = titlu
-
-    def createNewParagraph(self,paragraph):
-        self.content.append(paragraph)
-
-    def createNewImage(self,image):
-        self.content.append(image)
-
-    def createNewTable(self,table):
-        self.content.append(table)
-
-    def print(self):
-        for items in self.content:
-            print(items)
-
+from Book import Book
+from Author import Author
+from Components import *
 
 if __name__ == "__main__":
     book = Book("Disco Titanic")
-    book.createNewParagraph("Paragraph 1")
-    book.createNewParagraph("Paragraph 2")
-    book.createNewParagraph("Paragraph 3")
-    book.createNewImage("Image 1")
-    book.createNewParagraph("Paragraph 4")
-    book.createNewTable("Table 1")
+    author = Author("Jennifer Lopez")
 
+    #add author
+    book.addAuthor(author)
+
+    #add first chapter
+    idxChapterOne = book.createChapter("Chapter One")
+
+    #get first chapter
+    chp1 = book.getChapter(idxChapterOne)
+
+    #add first sub sub chapter
+    idxSubchapterOneOne = chp1.createSubChapter("Subchapter 1.1")
+
+    #get first sub sub chapter
+    subChapterOneOne = chp1.getSubChapter(idxSubchapterOneOne)
+
+    #add content
+    subChapterOneOne.createNewParagraph("Paragraph 1")
+    subChapterOneOne.createNewParagraph("Paragraph 2")
+    subChapterOneOne.createNewParagraph("Paragraph 3")
+    subChapterOneOne.createNewImage("Image 1")
+    subChapterOneOne.createNewParagraph("Paragraph 4")
+    subChapterOneOne.createNewTable("Table 1")
+
+    #########
     book.print()
