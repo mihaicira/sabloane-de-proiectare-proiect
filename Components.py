@@ -47,7 +47,6 @@ class SubChapter:
         for item in self.content:
             item.print()
 
-
 class Image:
     def __init__(self, imageName):
         self.imageName = imageName
@@ -68,3 +67,7 @@ class Table:
 
     def print(self):
         print(f"[Table] {self.title}")
+
+class TableOfContents:
+    def __init__(self):
+        self.to_be_continued = "to_be_continued"

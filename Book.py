@@ -1,9 +1,10 @@
-from Components import Chapter
+from Components import Chapter,TableOfContents
 class Book:
     def __init__(self,title):
         self.title = title
         self.authors = []
         self.chapters = []
+        self.tableOfContents = TableOfContents()
 
 
     def addAuthor(self,name):
