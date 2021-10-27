@@ -1,73 +1,100 @@
-class Chapter:
+import abc
+
+class Element(metaclass=abc.ABCMeta):
+    @abc.abstractmethod
+    def add(self, component):
+        pass
+        # self._children.add(component)
+
+    @abc.abstractmethod
+    def remove(self, component):
+        pass
+        # self._children.discard(component)
+
+    @abc.abstractmethod
+    def print(self):
+        pass
+        # print(self._children)
+
+class Section(Element):
+    #implements interface Element
     def __init__(self,title):
         self.title = title
-        self.subchapters = []
+        self._children = set()
 
-    def createSubChapter(self,title):
-        newSubChapter = SubChapter(title)
-        self.subchapters.append(newSubChapter)
-        return len(self.subchapters)-1
+    def add(self, component):
+        self._children.add(component)
 
-    def getSubChapter(self,id):
-        return self.subchapters[id]
+    def remove(self, component):
+        self._children.discard(component)
 
     def print(self):
-        print(f"[Chapter] {self.title}")
-        if (not len(self.subchapters)):
-            print("empty chapter")
-            return;
+        print(self.title)
+        for child in self._children:
+            child.print()
 
-        for item in self.subchapters:
-            item.print()
+class Book(Section):
+    #inherits class Section
+    def __init__(self,title):
+        Section.__init__(self,title)
+        self.authors = []
 
-class SubChapter:
-    def __init__(self, title):
-        self.title = title
-        self.content = []
+    def add(self, component):
+        self._children.add(component)
 
-    def createNewParagraph(self,text):
-        newParagraph = Paragraph(text)
-        self.content.append(newParagraph)
+    def remove(self, component):
+        self._children.discard(component)
 
-    def createNewImage(self,imageName):
-        newImage = Image(imageName)
-        self.content.append(newImage)
-
-    def createNewTable(self,title):
-        newTable = Table(title)
-        self.content.append(newTable)
+    def addAuthor(self,name):
+        self.authors.append(name)
 
     def print(self):
-        print(f"[SubChapter] {self.title}")
+        print(f"Title: {self.title}")
+        print("\nAuthor(s):")
+        for author in self.authors:
+            author.print()
+        print()
+        for child in self._children:
+            child.print()
 
-        if(not len(self.content)):
-            print("empty subchapter")
-            return;
+class Paragraph(Element):
+    #leaf
+    def __init__(self,content):
+        self.content = content
 
-        for item in self.content:
-            item.print()
+    def add(self, component):
+        pass;
 
-class Image:
-    def __init__(self, imageName):
-        self.imageName = imageName
-
-    def print(self):
-        print(f"[Image] {self.imageName}")
-
-class Paragraph:
-    def __init__(self, text):
-        self.text = text
-
-    def print(self):
-        print(f"[Paragraph] {self.text}")
-
-class Table:
-    def __init__(self, title):
-        self.title = title
+    def remove(self, component):
+        pass;
 
     def print(self):
-        print(f"[Table] {self.title}")
+        print(self.content)
 
-class TableOfContents:
-    def __init__(self):
-        self.to_be_continued = "to_be_continued"
+class Image(Element):
+    # leaf
+    def __init__(self, link):
+        self.link = link
+
+    def add(self, component):
+        pass;
+
+    def remove(self, component):
+        pass;
+
+    def print(self):
+        print(self.link)
+
+class Table(Element):
+    # leaf
+    def __init__(self, content):
+        self.link = content
+
+    def add(self, component):
+        pass;
+
+    def remove(self, component):
+        pass;
+
+    def print(self):
+        print(self.content)

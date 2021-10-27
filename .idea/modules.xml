@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../../Webtechnologies/.idea/Webtechnologies.iml" filepath="$PROJECT_DIR$/../../../Webtechnologies/.idea/Webtechnologies.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../Blockchain/btc_mining/.idea/btc_mining.iml" filepath="$PROJECT_DIR$/../../../Blockchain/btc_mining/.idea/btc_mining.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/sabloane-de-proiectare-proiect.iml" filepath="$PROJECT_DIR$/.idea/sabloane-de-proiectare-proiect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../Webtechnologies/tema3/.idea/tema3.iml" filepath="$PROJECT_DIR$/../../../Webtechnologies/tema3/.idea/tema3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../Webtechnologies/tema5/.idea/tema5.iml" filepath="$PROJECT_DIR$/../../../Webtechnologies/tema5/.idea/tema5.iml" />
     </modules>
   </component>
 </project>
