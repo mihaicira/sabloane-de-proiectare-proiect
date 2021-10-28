@@ -4,29 +4,26 @@ class Element(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def add(self, component):
         pass
-        # self._children.add(component)
 
     @abc.abstractmethod
     def remove(self, component):
         pass
-        # self._children.discard(component)
 
     @abc.abstractmethod
     def print(self):
         pass
-        # print(self._children)
 
 class Section(Element):
     #implements interface Element
     def __init__(self,title):
         self.title = title
-        self._children = set()
+        self._children = []
 
     def add(self, component):
-        self._children.add(component)
+        self._children.append(component)
 
     def remove(self, component):
-        self._children.discard(component)
+        self._children.remove(component)
 
     def print(self):
         print(self.title)
@@ -40,16 +37,16 @@ class Book(Section):
         self.authors = []
 
     def add(self, component):
-        self._children.add(component)
+        self._children.append(component)
 
     def remove(self, component):
-        self._children.discard(component)
+        self._children.remove(component)
 
     def addAuthor(self,name):
         self.authors.append(name)
 
     def print(self):
-        print(f"Title: {self.title}")
+        print(f"Book: {self.title}")
         print("\nAuthor(s):")
         for author in self.authors:
             author.print()
@@ -69,7 +66,7 @@ class Paragraph(Element):
         pass;
 
     def print(self):
-        print(self.content)
+        print("Paragraph:",self.content)
 
 class Image(Element):
     # leaf
@@ -83,7 +80,7 @@ class Image(Element):
         pass;
 
     def print(self):
-        print(self.link)
+        print("Image with name:",self.link)
 
 class Table(Element):
     # leaf
@@ -97,4 +94,4 @@ class Table(Element):
         pass;
 
     def print(self):
-        print(self.content)
+        print("Table:",self.content)
