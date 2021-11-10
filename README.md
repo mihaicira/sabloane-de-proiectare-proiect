@@ -1,4 +1,10 @@
-# Proiect șabloane de proiectare
+# Feedback lab2:
+https://github.com/mihaicira/sabloane-de-proiectare-proiect/tree/636d8bd052b37c1e00e7d28ed085b84336c73165
 
-blabla
+- No abstract class Element
+
+# Feedback lab3:
+https://github.com/mihaicira/sabloane-de-proiectare-proiect/tree/6a6e7b6a122b714113da214c62a355c18f6fc819
+
+- Use separate files for each class for better read/navigate the code
 
