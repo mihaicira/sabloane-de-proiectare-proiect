@@ -8,3 +8,7 @@ https://github.com/mihaicira/sabloane-de-proiectare-proiect/tree/6a6e7b6a122b714
 
 - Use separate files for each class for better read/navigate the code
 
+# Feedback lab4:
+https://github.com/mihaicira/sabloane-de-proiectare-proiect/tree/f06235670c31b0b492f353ba457ea1321504618f
+
+all good
