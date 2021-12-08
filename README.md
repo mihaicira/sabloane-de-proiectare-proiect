@@ -12,3 +12,7 @@ https://github.com/mihaicira/sabloane-de-proiectare-proiect/tree/6a6e7b6a122b714
 https://github.com/mihaicira/sabloane-de-proiectare-proiect/tree/f06235670c31b0b492f353ba457ea1321504618f
 
 all good
+
+# Feedback lab5:
+
+still issues with singleton (mail discussion)
