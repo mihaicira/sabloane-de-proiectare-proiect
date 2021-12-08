@@ -1,39 +1,43 @@
-from Author import Author
-from Element import Element
-from Section import Section
-from Book import Book
+from Author import *
+from Element import *
+from Section import *
+from Book import *
 from Image import *
-from Table import Table
-from Paragraph import Paragraph
+from Table import *
+from Paragraph import *
+from BookManager import *
 import time
+
+def Printing():
+   Manager.getInstance().getBook().print()
 
 if __name__ == "__main__":
 
-    start = time.time()
-    img1 = ImageProxy("Pamela Anderson")
-    img2 = ImageProxy("Kim Kardashian")
-    img3 = ImageProxy("Kirby Griffin")
+   myBook = Book("My Book")
+   Manager = BookManager()
 
-    playboyS1 = Section("Front Cover")
-    playboyS1.add(img1)
+   Manager.getInstance().setBook(myBook)
 
-    playboyS2 = Section("Summer Girls")
-    playboyS2.add(img2)
-    playboyS2.add(img3)
+   auth = Author("Myself")
+   myBook.addAuthor(auth)
 
-    playboy = Book("Playboy")
+   cap1 = Section("capitolul 1")
+   p1 = Paragraph("Paragraph 1")
+   cap1.add(p1)
+   p2 = Paragraph("Paragraph 2")
+   cap1.add(p2)
+   p3 = Paragraph("Paragraph 3")
+   cap1.add(p3)
+   p4 = Paragraph("Paragraph 4")
+   cap1.add(p4)
+   print("--without alignment:")
+   cap1.print()
 
-    playboy.add(playboyS1)
-    playboy.add(playboyS2)
-    end = time.time()
-    print("creation of content (time): ",end - start)
+   p1.setAlignStrategy(AlignCenter())
+   p2.setAlignStrategy(AlignRight())
+   p3.setAlignStrategy(AlignLeft())
 
-    start = time.time()
-    playboyS1.print()
-    end = time.time()
-    print("printing section 1 (time): ", end - start)
+   print("\n--with alignment:")
+   cap1.print()
 
-    start = time.time()
-    playboyS1.print()
-    end = time.time()
-    print("printing section 1 again (time): ", end - start)
+   Printing()

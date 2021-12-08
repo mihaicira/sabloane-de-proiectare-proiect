@@ -1,4 +1,5 @@
 from Section import Section
+from BookManager import BookManager
 
 class Book(Section):
     #inherits class Section
