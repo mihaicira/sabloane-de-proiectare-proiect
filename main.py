@@ -6,22 +6,13 @@ from Image import *
 from Table import *
 from Paragraph import *
 from BookManager import *
-import time
+from Visitor import *
 
 def Printing():
    Manager.getInstance().getBook().print()
 
 if __name__ == "__main__":
-
-   myBook = Book("My Book")
-   Manager = BookManager()
-
-   Manager.getInstance().setBook(myBook)
-
-   auth = Author("Myself")
-   myBook.addAuthor(auth)
-
-   cap1 = Section("capitolul 1")
+   cap1 = Section("Capitolul 1")
    p1 = Paragraph("Paragraph 1")
    cap1.add(p1)
    p2 = Paragraph("Paragraph 2")
@@ -30,14 +21,27 @@ if __name__ == "__main__":
    cap1.add(p3)
    p4 = Paragraph("Paragraph 4")
    cap1.add(p4)
-   print("--without alignment:")
-   cap1.print()
 
-   p1.setAlignStrategy(AlignCenter())
-   p2.setAlignStrategy(AlignRight())
-   p3.setAlignStrategy(AlignLeft())
+   cap1.add(ImageProxy("Image One"))
+   cap1.add(Image("Image Two"))
+   cap1.add(Paragraph("Some text"))
+   cap1.add(Table("Table 1"))
 
-   print("\n--with alignment:")
-   cap1.print()
+   cap2 = Section("Chapter 2")
+   cap2_1 = Section("Chapter 2.1")
+   cap2_1.add(Paragraph("Paragraph 1 from c2"))
+   cap2.add(cap2_1)
 
-   Printing()
+
+   stats = BookStatistics()
+   cap1.accept(stats)
+   stats.printStatistics()
+
+
+   book = Book("My book")
+   book.add(cap1)
+   book.add(cap2)
+
+   toc = GenerateToC()
+   book.accept(toc)
+   toc.getToC()

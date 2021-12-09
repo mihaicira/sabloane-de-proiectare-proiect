@@ -3,7 +3,7 @@ from Element import Element
 class Table(Element):
     # leaf
     def __init__(self, content):
-        self.link = content
+        self.content = content
 
     def add(self, component):
         pass;

@@ -13,3 +13,7 @@ class Element(metaclass=abc.ABCMeta):
     def print(self):
         pass
 
+    def accept(self,visitor):
+        visitor.visit(self)
+
+

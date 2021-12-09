@@ -17,9 +17,9 @@ class Picture(metaclass=abc.ABCMeta):
 
 class Image(Element,Picture):
     # leaf
-    def __init__(self, url):
-        self.url = url
-        time.sleep(2)
+    def __init__(self, content):
+        self.content = content
+        time.sleep(0.5)
 
     def add(self, component):
         pass;
@@ -28,7 +28,7 @@ class Image(Element,Picture):
         pass;
 
     def print(self):
-        print("Image with url:", self.url)
+        print("Image with url:", self.content)
 
     def url(self):
         pass;
@@ -40,8 +40,8 @@ class Image(Element,Picture):
         pass;
 
 class ImageProxy(Element,Picture):
-    def __init__(self, url):
-        self.url = url
+    def __init__(self, content):
+        self.content = content
         self.realImage = None
 
     def add(self, component):
@@ -66,5 +66,5 @@ class ImageProxy(Element,Picture):
 
     def loadImage(self):
         if(self.realImage == None):
-            self.realImage = Image(self.url)
+            self.realImage = Image(self.content)
 
