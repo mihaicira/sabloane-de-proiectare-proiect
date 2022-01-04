@@ -16,3 +16,12 @@ all good
 # Feedback lab5:
 
 still issues with singleton (mail discussion)
+
+# Feedback lab6:
+
+- accept method should be implemented in each class (override the implementation from element)
+- define a meta class for visitor (interface)
+- statistics should count the number of paragraphs, images and tables
+- visitor generateToC should take care of section's titles
+
+# Proposed grade: 9
